@@ -1,0 +1,152 @@
+.project-cards-section {
+    padding: 0 0 100px;
+}
+
+.project-cards-section__title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.project-cards-section__desc {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+}
+
+.project-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* ── Card ── */
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 20px 20px 0 0;
+}
+
+.project-card--purple:hover {
+    border-color: rgba(167, 139, 250, 0.2);
+    box-shadow: 0 8px 40px rgba(167, 139, 250, 0.08);
+}
+
+.project-card--purple::before {
+    background: linear-gradient(90deg, var(--accent-purple), transparent);
+}
+
+.project-card--pink:hover {
+    border-color: rgba(244, 114, 182, 0.2);
+    box-shadow: 0 8px 40px rgba(244, 114, 182, 0.08);
+}
+
+.project-card--pink::before {
+    background: linear-gradient(90deg, var(--accent-pink), transparent);
+}
+
+.project-card--cyan:hover {
+    border-color: rgba(34, 211, 238, 0.2);
+    box-shadow: 0 8px 40px rgba(34, 211, 238, 0.08);
+}
+
+.project-card--cyan::before {
+    background: linear-gradient(90deg, var(--accent-cyan), transparent);
+}
+
+.project-card--orange:hover {
+    border-color: rgba(251, 146, 60, 0.2);
+    box-shadow: 0 8px 40px rgba(251, 146, 60, 0.08);
+}
+
+.project-card--orange::before {
+    background: linear-gradient(90deg, var(--accent-orange), transparent);
+}
+
+.project-card__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.project-card__icon {
+    font-size: 2rem;
+}
+
+.project-card__name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.project-card__desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-card__details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-card__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.8rem;
+}
+
+.project-card__detail-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+.project-card__detail-text {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    padding-top: 4px;
+}
+
+.project-card__detail-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .project-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
