@@ -274,14 +274,43 @@
 
 @media (max-width: 640px) {
     .livefeed-section {
-        padding: 0 16px;
+        padding: 0 12px;
+        margin-bottom: 40px;
+    }
+
+    .livefeed-header {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .livefeed-header__title {
+        font-size: 0.85rem;
+    }
+
+    .livefeed-header__sub {
+        font-size: 0.6rem;
+    }
+
+    .livefeed-feed {
+        max-height: 320px;
     }
 
     .feed-msg {
         padding: 8px 10px;
+        gap: 8px;
     }
 
     .feed-msg__text {
         font-size: 0.72rem;
+    }
+
+    .feed-msg__ch {
+        width: 22px;
+        height: 22px;
+        font-size: 0.65rem;
+    }
+
+    .feed-msg__left {
+        width: 28px;
     }
 }

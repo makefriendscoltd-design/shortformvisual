@@ -1,5 +1,25 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import './CosmicNetwork.css';
+
+// ── Responsive orbit radius ──
+function useOrbitRadius() {
+    const getRadius = useCallback(() => {
+        const w = window.innerWidth;
+        if (w <= 480) return { orbit: 120, stat: 70, tech: 110 };
+        if (w <= 768) return { orbit: 170, stat: 80, tech: 140 };
+        return { orbit: 250, stat: 90, tech: 170 };
+    }, []);
+
+    const [radii, setRadii] = useState(getRadius);
+
+    useEffect(() => {
+        const onResize = () => setRadii(getRadius());
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, [getRadius]);
+
+    return radii;
+}
 
 const CHANNELS = [
     {
@@ -201,14 +221,14 @@ function useStarfield(canvasRef) {
 export default function CosmicNetwork() {
     const starRef = useRef(null);
     const [selectedChannel, setSelectedChannel] = useState(null);
+    const radii = useOrbitRadius();
 
     useStarfield(starRef);
 
-    const ORBIT_RADIUS = 250;
     const channelPositions = CHANNELS.map((ch, i) => {
         const angle = (i / CHANNELS.length) * Math.PI * 2 - Math.PI / 2;
-        const x = Math.round(Math.cos(angle) * ORBIT_RADIUS);
-        const y = Math.round(Math.sin(angle) * ORBIT_RADIUS);
+        const x = Math.round(Math.cos(angle) * radii.orbit);
+        const y = Math.round(Math.sin(angle) * radii.orbit);
         return { ...ch, angle, index: i, x, y };
     });
 
@@ -269,7 +289,7 @@ export default function CosmicNetwork() {
                                 {/* Asteroid stats — branch outward */}
                                 {ch.stats.map((stat, si) => {
                                     const statAngle = (si / ch.stats.length) * Math.PI * 2 - Math.PI / 2;
-                                    const statR = isSelected ? 90 : 0;
+                                    const statR = isSelected ? radii.stat : 0;
                                     const sx = Math.round(Math.cos(statAngle) * statR);
                                     const sy = Math.round(Math.sin(statAngle) * statR);
                                     return (
@@ -303,8 +323,8 @@ export default function CosmicNetwork() {
                     {/* Tech badges */}
                     {SHARED_TECH.map((tech, i) => {
                         const techAngle = (i / SHARED_TECH.length) * Math.PI * 2 + Math.PI / 8;
-                        const tx = Math.round(Math.cos(techAngle) * 170);
-                        const ty = Math.round(Math.sin(techAngle) * 170);
+                        const tx = Math.round(Math.cos(techAngle) * radii.tech);
+                        const ty = Math.round(Math.sin(techAngle) * radii.tech);
                         return (
                             <div
                                 key={tech.name}

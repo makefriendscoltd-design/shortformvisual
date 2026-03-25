@@ -879,16 +879,16 @@
     opacity: 0.1;
 }
 
-/* ── Responsive ── */
+/* ── Responsive — Tablet ── */
 @media (max-width: 768px) {
     .orbit-container {
-        max-width: 400px;
-        height: 400px;
+        max-width: 440px;
+        height: 440px;
     }
 
     .orbit-planet__body {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
     }
 
     .orbit-planet__letter {
@@ -896,8 +896,8 @@
     }
 
     .orbit-core__inner {
-        width: 65px;
-        height: 65px;
+        width: 68px;
+        height: 68px;
     }
 
     .orbit-tech {
@@ -905,18 +905,18 @@
     }
 
     .orbit-core__ring--1 {
-        width: 160px;
-        height: 160px;
+        width: 200px;
+        height: 200px;
     }
 
     .orbit-core__ring--2 {
-        width: 240px;
-        height: 240px;
+        width: 300px;
+        height: 300px;
     }
 
     .orbit-core__ring--3 {
-        width: 320px;
-        height: 320px;
+        width: 400px;
+        height: 400px;
     }
 
     .exp-step__orb {
@@ -930,8 +930,225 @@
         min-width: 8px;
     }
 
+    .expanded-pipeline--visible {
+        max-height: 600px;
+    }
+
+    .channel-tags {
+        gap: 8px;
+    }
+
+    /* Pipeline steps — grid on tablet/mobile */
     .expanded-pipeline__steps {
-        overflow-x: auto;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px 4px;
+        justify-items: center;
+        overflow-x: visible;
+        padding-bottom: 8px;
+    }
+
+    .exp-link {
+        display: none;
+    }
+
+    .exp-step {
+        gap: 4px;
+    }
+
+    .exp-step__orb {
+        width: 36px;
+        height: 36px;
+        font-size: 0.88rem;
+    }
+
+    .exp-step__num {
+        font-size: 0.45rem;
+    }
+
+    .exp-step__label {
+        font-size: 0.55rem;
+    }
+
+    .expanded-pipeline__techs {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+}
+
+/* ── Responsive — Mobile ── */
+@media (max-width: 480px) {
+
+    .cosmic-section,
+    .pipeline-section {
+        padding: 24px 12px 40px;
+    }
+
+    .cosmic-title {
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+    }
+
+    .cosmic-desc {
+        font-size: 0.75rem;
+        margin-bottom: 24px;
+    }
+
+    .orbit-container {
+        max-width: 320px;
+        height: 320px;
+    }
+
+    .orbit-core__inner {
+        width: 52px;
+        height: 52px;
+    }
+
+    .orbit-core__icon {
+        font-size: 1.1rem;
+    }
+
+    .orbit-core__label {
+        font-size: 0.45rem;
+    }
+
+    .orbit-planet__body {
+        width: 36px;
+        height: 36px;
+    }
+
+    .orbit-planet__letter {
+        font-size: 0.85rem;
+    }
+
+    .orbit-planet__label {
+        font-size: 0.58rem;
+        margin-top: 4px;
+    }
+
+    .orbit-tech {
+        display: none;
+    }
+
+    .orbit-core__ring--1 {
+        width: 140px;
+        height: 140px;
+    }
+
+    .orbit-core__ring--2 {
+        width: 210px;
+        height: 210px;
+    }
+
+    .orbit-core__ring--3 {
+        width: 280px;
+        height: 280px;
+    }
+
+    /* Nebula — smaller on mobile */
+    .nebula--1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .nebula--2 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .nebula--3 {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Asteroid stats — compact */
+    .asteroid__body {
+        min-width: 50px;
+        padding: 6px 4px 4px;
+        border-radius: 8px;
+    }
+
+    .asteroid__icon {
+        font-size: 0.7rem;
+    }
+
+    .asteroid__value {
+        font-size: 0.7rem;
+    }
+
+    .asteroid__label {
+        font-size: 0.42rem;
+    }
+
+    /* Expanded pipeline — vertical grid on mobile */
+    .expanded-pipeline {
+        padding: 0 12px;
+    }
+
+    .expanded-pipeline--visible {
+        max-height: 700px;
+        margin-top: 20px;
+    }
+
+    .expanded-pipeline__header {
+        margin-bottom: 16px;
+        gap: 8px;
+    }
+
+    .expanded-pipeline__name {
+        font-size: 0.95rem;
+    }
+
+    .expanded-pipeline__techs {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    .expanded-pipeline__tech-tag {
+        font-size: 0.55rem;
+        padding: 2px 8px;
+    }
+
+    .expanded-pipeline__steps {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px 2px;
+    }
+
+    .exp-step__orb {
+        width: 30px;
+        height: 30px;
+        font-size: 0.78rem;
+    }
+
+    .exp-step__num {
+        font-size: 0.42rem;
+    }
+
+    .exp-step__label {
+        font-size: 0.48rem;
+    }
+
+    /* Channel tags — 2 column */
+    .channel-tags {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        padding: 0 12px 30px;
+    }
+
+    .channel-tag {
+        padding: 6px 10px;
+        font-size: 0.65rem;
+        justify-content: center;
+    }
+
+    .channel-tag__status {
+        display: none;
+    }
+
+    /* Orbit container pseudo-element */
+    .orbit-container::before {
+        width: 280px;
+        height: 280px;
     }
 }
